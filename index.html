@@ -51,8 +51,8 @@ DNS de código aberto (DNSSHIM). Tendo como sua principal característica funcio
     <section>
         <h2>
             <img src="http://i.imgur.com/YC61X.jpg">
-            </h2>
-            <h2>David Robert</h2>
+        </h2>
+        <h2>David Robert</h2>
             <div>
                 <a href="javascript:nicTemp();">davidrobert</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="javascript:nicTemp();">@while42</a>
             </div>
@@ -124,10 +124,15 @@ obter a informação desejada</li>
 </ol>
 		</section>
 		<section>
-			<h2>Vulnerabilidades</h2>
-		</section>
-		<section>
-			<h2>Dan Kaminsky</h2>
+			<section>
+				<h2>Vulnerabilidades</h2>
+			</section>
+			<section>
+				<h2>
+					Dan Kaminsky<br/>
+            		<img src="img/Dan_Kaminsky.jpeg">
+        		</h2>
+			</section>
 		</section>
 		<section>
 			<h2>DNSSEC</h2>
@@ -144,37 +149,29 @@ obter a informação desejada</li>
 		<section>
 			<h2>Objetivo</h2>
 			<br/>
-			Promover e facilitar a utilização de DNSSEC 
+			<h3>Promover e facilitar a utilização de DNSSEC</h3> 
 
 			<br/><br/>
 
-			<p>
-			<b>Publico Alvo</b>
-			Provedores de hospedagem ou qualquer outra instituição responsável por administrar servidores DNS autoritativos para muitas zonas
-			</p>
+			<ol style="list-style-type: none;">		
+				<li><b>PUBLICO ALVO</b></li>
+				<li><br/></li>
+				<li>Provedores de hospedagem ou qualquer outra instituição responsável por
+administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
+			</ol>
 		</section>
         <section>
             <h2>Funcionalidades</h2>
-            <div>
-                <div>
-                    <ul>
-                        <li>DNSSEC<br>
-                        </li>
-                        <li>Suporta AXFR e IXFR com TSIG<br>
-                        </li>
-                        <li>Gerenciamento de chaves e assinaturas<br>
-                        </li>
-                        <li>Importação de zonas já existentes em outros servidores<br>
-                        </li>
-                        <li>Importação de chaves (DNSKEY) a partir de arquivo</li>
-                        <li>Gerenciamento de grupos de servidores slave<br>
-                        </li>
-                        <li>Cache LRU para escalar em grande quantidade de zonas</li>
-                        <li>Provisionamento automático de zonas aos servidores slave<br>
-                        </li>
+                    <ul style="list-style-type: none;">
+                        <li>- DNSSEC</li>
+                        <li>- Suporte a AXFR e IXFR com TSIG</li>
+                        <li>- Gerenciamento de chaves e assinaturas</li>
+                        <li>- Importação de zonas já existentes em outros servidores</li>
+                        <li>- Importação de chaves <!--(DNSKEY)--> a partir de arquivo</li>
+                        <li>- Gerenciamento de grupos de servidores slave</li>
+                        <!--<li>- Cache LRU para escalar em grande quantidade de zonas</li>-->
+                        <li>- Provisionamento automático de zonas aos servidores slave</li>
                     </ul>
-                </div>
-            </div>
         </section>
         <section>
             <h2>FUNCIONAMENTO</h2>
