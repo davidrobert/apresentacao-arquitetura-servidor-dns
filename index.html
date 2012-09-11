@@ -4,10 +4,11 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Arquitetura de um servidor DNS Hidden Master para gerenciamento de múltiplas zonas</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Apresenta o funcionamento e arquitetura de um servidor
+DNS de código aberto (DNSSHIM). Tendo como sua principal característica funcionar como um servidor Hidden Master, provendo informações para servidores autoritativos secundários. Sendo possível também gerenciar, armazenar e assinar automaticamente zonas de maneira segura.">
+		<meta name="author" content="David Robert Camargo de Campos">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -51,11 +52,107 @@
         <h2>
             <img src="http://i.imgur.com/YC61X.jpg">
             </h2>
-            <h2>David RoberT</h2>
+            <h2>David Robert</h2>
             <div>
                 <a href="javascript:nicTemp();">davidrobert</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="javascript:nicTemp();">@while42</a>
             </div>
         </section>
+		<section>
+			<h2>Vamos fala sobre...</h2>
+			<br/>
+
+			<h3>
+			<ol>
+				<li class="fragment">Servidor DNS ??</li>
+				<li class="fragment">Hidden Master ??</li>
+				<li class="fragment">Multiplas Zonas ??</li>
+			</ol>
+			</h3>
+		</section>
+		<section>
+			<h2>DNS</h2>
+		</section>
+		<section>
+			<h2>Domínio <code>X</code> Zona</h2>
+		</section>
+		<section>
+			<h2>Tipos de Servidores</h2>
+	
+		<ol style="list-style-type: none;">		
+		<li>
+			<ul style="list-style-type: none;">
+			<li><h3>Servidor Autoritativo</h3></li>
+			<li class="fragment">- Responde com autoridade para uma zona</li>
+			<li class="fragment">- Deve estar disponível publicamente para internet</li>
+			<li class="fragment">- Podem ser do tipo <b>Master</b> ou <b>Slave</b></li>
+			<li><br/></li>
+			</ul>
+		</li>
+
+		<li>
+			<ol style="list-style-type: none;">		
+			<li><h3>Servidor Recursivo</h3></li>
+			<li class="fragment">- Não é responsável por uma única zona</li>
+			<li class="fragment">- Ao receber uma requisição, consulta servidores autoritativos para
+obter a informação desejada</li>
+			<li class="fragment">- Faz cache de informações</li>
+			<li class="fragment">- Pode ter acesso controlado</li>
+			</ol>
+		</li>
+		</ol>
+		</section>
+		<section>
+			<h2>Servidores Master e Slave</h2>
+<ol style="list-style-type: none;">		
+	<li><h3>Servidor Master</h3></li>
+	<ol style="list-style-type: none;">		
+		<li class="fragment">- Contém a conﬁguração da zona pela qual é responsável</li>
+		<li class="fragment">- A cada alteração, as novas informações são propagadas para os servidores Slaves</li>
+		<li><br/></li>
+	</ol>
+
+	<li><h3>Hidden Master (Master oculto)</h3></li>
+	<ol style="list-style-type: none;">		
+		<li class="fragment">- Tipo específico de Master que não é visível na internet</li>
+		<li><br/></li>
+	</ol>
+
+	<li><h3>Servidor Slave</h3></li>
+	<ol style="list-style-type: none;">		
+		<li class="fragment">- Apenas obtém a conﬁguração da zona do servidor Master</li>
+	</ol>
+</ol>
+		</section>
+		<section>
+			<h2>Vulnerabilidades</h2>
+		</section>
+		<section>
+			<h2>Dan Kaminsky</h2>
+		</section>
+		<section>
+			<h2>DNSSEC</h2>
+		</section>
+		<section>
+			<h2>Motivação</h2>
+			<ol>
+				<li class="fragment">Complexidade na implementação e manutenção de DNSSEC</li> 
+				<li class="fragment">Gradual adoção de DNSSEC pelo mundo</li>
+				<li class="fragment">Todos os TLDs sob o <code>.br</code> com suporte a DNSSEC</li> 
+				<li class="fragment">Baixa adoção da extensão DNSSEC nos domínios <code>.br</code></li>
+			</ol>
+		</section>
+		<section>
+			<h2>Objetivo</h2>
+			<br/>
+			Promover e facilitar a utilização de DNSSEC 
+
+			<br/><br/>
+
+			<p>
+			<b>Publico Alvo</b>
+			Provedores de hospedagem ou qualquer outra instituição responsável por administrar servidores DNS autoritativos para muitas zonas
+			</p>
+		</section>
         <section>
             <h2>Funcionalidades</h2>
             <div>
@@ -131,32 +228,23 @@
                     <div>
                         <div>
                             <ul>
-                                <li>Site do DNSSHIM</li>
-                                <li>
+                                <li>Site do DNSSHIM<br>
                                     <a href="javascript:nicTemp();">http://registro.br/dnsshim/</a>
                                     <br>
                                 </li>
                                 <li>Lista de Discussão do DNSSHIM<br>
-                                </li>
-                                <li>
                                     <a href="javascript:nicTemp();">https://eng.registro.br/mailman/listinfo/dnsshim</a>
                                     <br>
                                 </li>
                                 <li>Tutorial de DNSSEC<br>
-                                </li>
-                                <li>
                                     <a href="javascript:nicTemp();">ftp://ftp.registro.br/pub/doc/tutorial-dnssec.pdf</a>
                                     <br>
                                 </li>
                                 <li>Manual do DNSSHIM (Inglês)<br>
-                                </li>
-                                <li>
                                     <a href="javascript:nicTemp();">ftp://ftp.registro.br/pub/dnsshim/manual_en.pdf</a>
                                     <br>
                                 </li>
                                 <li>DNSSHIM - Protocolo e Transporte (Inglês)<br>
-                                </li>
-                                <li>
                                     <a href="javascript:nicTemp();">ftp://ftp.registro.br/pub/dnsshim/protocol_en.pdf</a>
                                     <br>
                                 </li>
