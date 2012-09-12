@@ -139,6 +139,7 @@ obter a informação desejada</li>
 		</section>
 		<section>
 			<h2>Motivação</h2>
+			<br/>
 			<ol>
 				<li class="fragment">Complexidade na implementação e manutenção de DNSSEC</li> 
 				<li class="fragment">Gradual adoção de DNSSEC pelo mundo</li>
@@ -162,38 +163,39 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
 		</section>
         <section>
             <h2>Funcionalidades</h2>
-                    <ul style="list-style-type: none;">
-                        <li>- DNSSEC</li>
-                        <li>- Suporte a AXFR e IXFR com TSIG</li>
-                        <li>- Gerenciamento de chaves e assinaturas</li>
-                        <li>- Importação de zonas já existentes em outros servidores</li>
-                        <li>- Importação de chaves <!--(DNSKEY)--> a partir de arquivo</li>
-                        <li>- Gerenciamento de grupos de servidores slave</li>
-                        <!--<li>- Cache LRU para escalar em grande quantidade de zonas</li>-->
-                        <li>- Provisionamento automático de zonas aos servidores slave</li>
-                    </ul>
+			<br/>
+            <ul style="list-style-type: none;">
+                <li>- DNSSEC</li>
+                <li>- Suporte a AXFR e IXFR com TSIG</li>
+                <li>- Gerenciamento de chaves e assinaturas</li>
+                <li>- Importação de zonas já existentes em outros servidores</li>
+                <li>- Importação de chaves <!--(DNSKEY)--> a partir de arquivo</li>
+                <li>- Gerenciamento de grupos de servidores slave</li>
+                <!--<li>- Cache LRU para escalar em grande quantidade de zonas</li>-->
+                <li>- Provisionamento automático de zonas aos <!--servidores--> slaves</li>
+            </ul>
         </section>
         <section>
-            <h2>FUNCIONAMENTO</h2>
+            <h2>Funcionamento</h2>
 			<img src="img/funcionamento-dnsshim.png">
         </section>
         <section>
-            <h2>PRINCIPAIS MóDULOS</h2>
+            <h2>Arquitetura</h2>
         </section>
         <section>
-            <h2>ARQUITETURA</h2>
+            <h2>Modos de utilização</h2>
         </section>
         <section>
-            <h2>SUPORTE a múltiplos usuários</h2>
+            <h2>Suporte a múltiplos usuários</h2>
         </section>
         <section>
-            <h2>dnssec automatizado</h2>
+            <h2>DNSSEC Automatizado</h2>
         </section>
         <section>
-            <h2>reassinatura automática de zonas&nbsp;</h2>
+            <h2>Reassinatura Automática de Zonas</h2>
         </section>
         <section>
-            <h2>grupos de slave</h2>
+            <h2>Grupos de Slave</h2>
         </section>
         <section>
             <h2>protocolo de comunicação do cliente</h2>
@@ -202,7 +204,23 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
             <h2>Provisionamento Automático de Zonas</h2>
         </section>
         <section>
-            <h2>utilização</h2>
+            <h2>Utilização</h2>
+<br/>
+<ul style="list-style-type: none;">
+	<li><h3>Dnssh − Cliente Shell-Like</h3>
+		<ul style="list-style-type: none;">
+			<li>- Interface em <code>"</code>linha de comando<code>"</code></li>
+			<li>- Suporte a todos os recursos do DNSSHIM</li>
+			<li>- Implementação em Python</li>
+			<li><br/></li>
+		</ul>
+	</li>
+	<li><h3>pydnsshim − Biblioteca cliente</h3>
+		<ul style="list-style-type: none;">
+			<li>- Biblioteca em python para o desenvolvimento de aplicações cliente</li>
+		</ul>
+	</li>
+</ul>
         </section>
         <section>
             <section>
