@@ -150,13 +150,13 @@ obter a informação desejada</li>
 		<section>
 			<h2>DNSSEC</h2>
 		</section>
-		<section>
+		<section data-state="alert">
 			<h2>Motivação</h2>
 			<br/>
 			<ol>
 				<li class="fragment">Complexidade na implementação e manutenção de DNSSEC</li> 
 				<li class="fragment">Gradual adoção de DNSSEC pelo mundo</li>
-				<li class="fragment">Todos os TLDs sob o <code>.br</code> com suporte a DNSSEC</li> 
+				<li class="fragment">Todos os TLDs sob o <b><code>.br</code></b> com suporte a DNSSEC</li> 
 				<li class="fragment">Baixa adoção da extensão DNSSEC nos domínios <code>.br</code></li>
 			</ol>
 		</section>
@@ -173,6 +173,10 @@ obter a informação desejada</li>
 				<li>Provedores de hospedagem ou qualquer outra instituição responsável por
 administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
 			</ol>
+		</section>
+		<section data-state="soothe">
+			<br/><br/><br/>
+			<h1>DNSSHIM</h1>
 		</section>
 		<section>
 			<h2>Características</h2>
@@ -212,18 +216,74 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
         </section>
         <section>
             <h2>Suporte a múltiplos usuários</h2>
+			<br/>
+			<img src="img/suporte-multiplos-usuarios.png">
         </section>
         <section>
             <h2>DNSSEC Automatizado</h2>
+			<br>
+			Zonas com suporte a DNSSEC por default<br/><br/>
+			<ul>
+				<li>Chave gerada automaticamente na criação da zona</li>
+				<li>Processo transparente para o administrador</li>
+				<li style="list-style-type: none;"><br/></li>
+				<li style="list-style-type: none;" class="fragment">
+					<b>Lembrete: Chaves nunca expiram!</b>
+				</li>
+			</ul>
         </section>
         <section>
             <h2>Reassinatura Automática de Zonas</h2>
+			<b>Cada record de assinatura possui data de validade</b>
+			<br/><br/>
+			Baseado no conceito de:<br/>
+			<ul>
+				<li>scheduler_high_priority</li>
+				<li>scheduler_low_priority</li>
+			</ul>
+			<br/><br/>
+			<small>Onde: scheduler_high_priority &lt; scheduler_low_priority</small>
+			<br/>
+<pre><code>
+Passos de Reassinatura:
+1 Se tempo para expiração &lt; scheduler_high_priority então
+	reassina a zona imediatamente
+2 Senão reassina a zona em algum instante entre
+	scheduler_high_priority e scheduler_low_priority antes da expiração
+</code></pre>
+- Algoritmo de espalhamento no tempo
         </section>
         <section>
             <h2>Grupos de Slave</h2>
+			<br/>
+			<img src="img/grupo-slaves.png">
         </section>
         <section>
-            <h2>protocolo de comunicação do cliente</h2>
+            <h2>Protocolo de comunicação do cliente</h2>
+<br/>
+TCP + TLS
+
+<pre><code contenteditable>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;dnsshim version="1.0"&gt;
+    &lt;request&gt;
+        &lt;addRr&gt;
+            &lt;sessionId&gt;1&lt;/sessionId&gt;
+            &lt;zone&gt;devinsampa.com.br&lt;/zone&gt;
+            &lt;rr&gt;
+                &lt;ownername&gt;www&lt;/ownername&gt;
+                &lt;ttl&gt;86400&lt;/ttl&gt;
+                &lt;type&gt;CNAME&lt;/type&gt;
+                &lt;dnsClass&gt;IN&lt;/dnsClass&gt;
+                &lt;rdata&gt;devinsampa.com.br&lt;/rdata&gt;
+            &lt;/rr&gt;
+        &lt;/addRr&gt;
+    &lt;/request&gt;
+&lt;/dnsshim&gt;
+</code></pre>
+
+Possibilidade de integração com outros sistemas
+Disponibilização de biblioteca em python
         </section>
         <section>
             <h2>Provisionamento Automático de Zonas</h2>
