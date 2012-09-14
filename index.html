@@ -67,11 +67,11 @@ html.softwares body {
             <div>
         	<img src="img/icon-github.png" alt="Github" height="42" width="42" 
 				style="background: none; box-shadow: none; margin: 0; border: 0">
-			<a href="javascript:nicTemp();">davidrobert</a>
+			<a href="">davidrobert</a>
 			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 			<img src="img/icon-twitter.png" alt="Twitter" height="42" width="42" 
 				style="background: none; box-shadow: none; margin: 0; border: 0">
-			<a href="javascript:nicTemp();">@while42</a>
+			<a href="">@while42</a>
             </div>
         </section>
 		<section>
@@ -274,6 +274,28 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
         </section>
 		<section>
 			<h2>Como é esse esquema de assinatura?</h2>
+			<section></section>
+			<section>
+				<img src="img/chaves-assimetricas.png">
+				<ul>
+					<li>Chaves <b>não</b> expiram</li>
+					<li>Assinaturas expiram</li>
+				</ul>
+			</section>
+			<section>
+				<h2>
+				<br/><br/>
+				A zona deve ser assinada<br/><br/>
+				O pai deve ter a chave publica das zonas filha
+				</h2>
+			</section>
+			<section>
+				<img src="img/cadeia-confianca.png">
+			</section>
+			<section>
+				<br/><br/><br/>	
+				<p>Servidor Recursivo precisa ter a chave pública da raiz da Internet</p>
+			</section>
 		</section>
 		<section>
 			<h2>Exemplo de Consulta com DNSSEC</h2>
@@ -363,31 +385,33 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
 				<li>Chave gerada automaticamente na criação da zona</li>
 				<li>Processo transparente para o administrador</li>
 				<li style="list-style-type: none;"><br/></li>
+				<!--
 				<li style="list-style-type: none;" class="fragment">
 					<b>Lembrete: Chaves nunca expiram!</b>
 				</li>
+				-->
 			</ul>
         </section>
         <section>
             <h2>Reassinatura Automática de Zonas</h2>
-			<b>Cada record de assinatura possui data de validade</b>
+			<b>Cada assinatura possui data de validade</b>
 			<br/><br/>
 			Baseado no conceito de:<br/>
 			<ul>
-				<li>scheduler_high_priority</li>
-				<li>scheduler_low_priority</li>
+				<li><code>scheduler_high_priority</code></li>
+				<li><code>scheduler_low_priority</code></li>
 			</ul>
-			<br/><br/>
-			<small>Onde: scheduler_high_priority &lt; scheduler_low_priority</small>
 			<br/>
-<pre><code>
-Passos de Reassinatura:
-1 Se tempo para expiração &lt; scheduler_high_priority então
+			<small>Onde: <code>scheduler_high_priority &lt; scheduler_low_priority</code></small>
+			<br/><br/>
+<div class="fragment">
+<b>PASSOS DE REASSINATURA:</b>
+<pre><code>1 Se tempo para expiração &lt; scheduler_high_priority então
 	reassina a zona imediatamente
 2 Senão reassina a zona em algum instante entre
-	scheduler_high_priority e scheduler_low_priority antes da expiração
-</code></pre>
-- Algoritmo de espalhamento no tempo
+	scheduler_high_priority e scheduler_low_priority antes da expiração</code></pre>
+<h3>Algoritmo de espalhamento no tempo</h3>
+</div>
         </section>
         <section>
             <h2>Grupos de Slave</h2>
