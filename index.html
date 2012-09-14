@@ -106,6 +106,32 @@ html.softwares body {
 			</ul>
 		</section>
 		<section>
+			<h2>Tipos de Servidores</h2>
+	
+		<ol style="list-style-type: none;">		
+		<li>
+			<ul style="list-style-type: none;">
+			<li><h3>Servidor Autoritativo</h3></li>
+			<li class="fragment">- Responde com autoridade para uma zona</li>
+			<li class="fragment">- Deve estar disponível publicamente para internet</li>
+			<li class="fragment">- Podem ser do tipo <b>Master</b> ou <b>Slave</b></li>
+			<li><br/></li>
+			</ul>
+		</li>
+
+		<li>
+			<ol style="list-style-type: none;">		
+			<li><h3>Servidor Recursivo</h3></li>
+			<li class="fragment">- Não é responsável por uma única zona</li>
+			<li class="fragment">- Ao receber uma requisição, consulta servidores autoritativos para
+obter a informação desejada</li>
+			<li class="fragment">- Faz cache de informações</li>
+			<li class="fragment">- Pode ter acesso controlado</li>
+			</ol>
+		</li>
+		</ol>
+		</section>
+		<section>
 			<h2>Exemplo de Consulta DNS</h2>
 			<section>
 				<img src="img/consulta-dns-9h.png">
@@ -134,32 +160,6 @@ html.softwares body {
 			<section>
 				<img src="img/consulta-dns-1.png">
 			</section>
-		</section>
-		<section>
-			<h2>Tipos de Servidores</h2>
-	
-		<ol style="list-style-type: none;">		
-		<li>
-			<ul style="list-style-type: none;">
-			<li><h3>Servidor Autoritativo</h3></li>
-			<li class="fragment">- Responde com autoridade para uma zona</li>
-			<li class="fragment">- Deve estar disponível publicamente para internet</li>
-			<li class="fragment">- Podem ser do tipo <b>Master</b> ou <b>Slave</b></li>
-			<li><br/></li>
-			</ul>
-		</li>
-
-		<li>
-			<ol style="list-style-type: none;">		
-			<li><h3>Servidor Recursivo</h3></li>
-			<li class="fragment">- Não é responsável por uma única zona</li>
-			<li class="fragment">- Ao receber uma requisição, consulta servidores autoritativos para
-obter a informação desejada</li>
-			<li class="fragment">- Faz cache de informações</li>
-			<li class="fragment">- Pode ter acesso controlado</li>
-			</ol>
-		</li>
-		</ol>
 		</section>
 		<section>
 			<h2>Servidores Master e Slave</h2>
