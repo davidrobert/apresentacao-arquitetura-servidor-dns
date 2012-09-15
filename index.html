@@ -60,10 +60,6 @@ html.softwares body {
         </div>
         <p><a href="http://devinsampa.com.br">DevInSampa 2012</a></p>
     </section>
-	<section>
-		<h3>blá blá blá... gerenciamento de zonas?!</h3>
-		<img src="img/maroni-bahamas.jpeg">
-	</section>
     <section>
         <h2>
             <img src="img/davidrobert.jpeg">
@@ -84,16 +80,24 @@ html.softwares body {
             </nobr>
         </section>
 		<section>
-			<h2>Vamos falar sobre...</h2>
-			<br/>
-
-			<h3>
-			<ol>
-				<li class="fragment">Servidor DNS ??</li>
-				<li class="fragment">Hidden Master ??</li>
-				<li class="fragment">Multiplas Zonas ??</li>
-			</ol>
-			</h3>
+			<section>
+				<h2>Vamos falar sobre...</h2>
+			</section>
+			<section>
+				<h3>blá blá blá... gerenciamento de zonas?!</h3>
+				<img src="img/maroni-bahamas.jpeg" class="fragment"><br/>
+			</section>
+			<section>
+				<h2>Vamos falar sobre...</h2>
+				<br/><br/>
+				<h3>
+				<ol>
+					<li class="fragment">Servidor DNS ??</li>
+					<li class="fragment">Hidden Master ??</li>
+					<li class="fragment">Multiplas Zonas ??</li>
+				</ol>
+				</h3>
+			</section>
 		</section>
 		<section data-state="intro">
 			<br/><br/><br/>
@@ -102,12 +106,14 @@ html.softwares body {
 		<section>
 			<h2>DNS</h2>
 			<br/><br/><br/>
-			<code>devinsampa.com.br.</code>	&nbsp;&nbsp;<font size="11">&harr;</font>&nbsp;&nbsp; <code>207.97.227.245</code>
+<nobr>
+<h3>devinsampa.com.br.&nbsp;&nbsp;<font size="11">&harr;</font>&nbsp;&nbsp;207.97.227.245</h3>
+</nobr>
 			<br/><br/><br/>
 			<ul class="fragment">		
 				<li>Arquitetura hierárquica - árvore invertida</li>
 				<li>Descentralizado e distribuído</li>
-				<li>Mais funcionalidades do que só <code>domínio</code> &harr; <code>IP</code></li>
+				<li>Mais funcionalidades do que só: <b>domínio &harr; IP</b></li>
 			</ul>
 		</section>
 		<section>
@@ -229,8 +235,8 @@ extensions</div>
 			<ol>
 				<li class="fragment">Complexidade na implementação e manutenção de DNSSEC</li> 
 				<li class="fragment">Gradual adoção de DNSSEC pelo mundo</li>
-				<li class="fragment">Todos os TLDs sob o <b><code>.br</code></b> com suporte a DNSSEC</li> 
-				<li class="fragment">Baixa adoção da extensão DNSSEC nos domínios <code>.br</code></li>
+				<li class="fragment">Todos os TLDs sob o <b>.br</b> com suporte a DNSSEC</li> 
+				<li class="fragment">Baixa adoção da extensão DNSSEC nos domínios <b>.br</b></li>
 			</ol>
 		</section>
 		<section data-state="softwares">
@@ -260,21 +266,22 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
 				<li>Código-fonte aberto</li>
 				<li>Implementação em Java</li>
 				<li>Módulo <b>signer</b> separado do <b>server</b></li>
-				<li>Protocolo para comunicação com <b>client</b> em <code>XML</code></li>
+				<li>Protocolo para comunicação com <b>client</b> em XML</li>
 			</ul>
 		</section>
         <section>
             <h2>Funcionalidades</h2>
 			<br/>
-            <ul style="list-style-type: none;">
-                <li>- DNSSEC</li>
-                <li>- Suporte a AXFR e IXFR com TSIG</li>
-                <li>- Gerenciamento de chaves e assinaturas</li>
-                <li>- Importação de zonas já existentes em outros servidores</li>
-                <li>- Importação de chaves <!--(DNSKEY)--> a partir de arquivo</li>
-                <li>- Gerenciamento de grupos de servidores slave</li>
-                <!--<li>- Cache LRU para escalar em grande quantidade de zonas</li>-->
-                <li>- Provisionamento automático de zonas aos <!--servidores--> slaves</li>
+            <!--<ul style="list-style-type: none;">-->
+            <ul>
+                <li>DNSSEC</li>
+                <li>Suporte a AXFR e IXFR com TSIG</li>
+                <li>Gerenciamento de chaves e assinaturas</li>
+                <li>Importação de zonas <!--já existentes em-->de outros servidores</li>
+                <li>Importação de chaves <!--(DNSKEY)--> a partir de arquivo</li>
+                <li>Gerenciamento de grupos de servidores slave</li>
+                <!--<li>Cache LRU para escalar em grande quantidade de zonas</li>-->
+                <li>Provisionamento automático de zonas aos <!--servidores--> slaves</li>
             </ul>
         </section>
         <section>
@@ -301,10 +308,12 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
 			<section>
 				<img src="img/cadeia-confianca.png">
 			</section>
+			<!--
 			<section>
 				<br/><br/><br/>	
 				<p>Servidor Recursivo precisa ter a chave pública da raiz da Internet</p>
 			</section>
+			-->
 		</section>
 		<section>
 			<h2>Exemplo de Consulta com DNSSEC</h2>
@@ -403,24 +412,29 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
         </section>
         <section>
             <h2>Reassinatura Automática de Zonas</h2>
+			<section>
 			<b>Cada assinatura possui data de validade</b>
 			<br/><br/>
 			Baseado no conceito de:<br/>
 			<ul>
-				<li><code>scheduler_high_priority</code></li>
-				<li><code>scheduler_low_priority</code></li>
+				<li><code>scheduler high_priority</code></li>
+				<li><code>scheduler low_priority</code></li>
 			</ul>
-			<br/>
-			<small>Onde: <code>scheduler_high_priority &lt; scheduler_low_priority</code></small>
-			<br/><br/>
-<div class="fragment">
-<b>PASSOS DE REASSINATURA:</b>
-<pre><code>1 Se tempo para expiração &lt; scheduler_high_priority então
+			<br/><br/><br/>
+			<p>Onde: <code>high_priority &lt; low_priority</code></p>
+			</section>
+			<section>
+<b>PASSOS DE REASSINATURA:</b><br/>
+<pre style="font-size: 24px">
+<code>Se tempo para expiração &lt; high_priority então
 	reassina a zona imediatamente
-2 Senão reassina a zona em algum instante entre
-	scheduler_high_priority e scheduler_low_priority antes da expiração</code></pre>
+
+Senão reassina a zona em algum instante entre
+	high_priority e low_priority antes da expiração</code></pre>
+
+<br/><br/><br/>
 <h3>Algoritmo de espalhamento no tempo</h3>
-</div>
+			</section>
         </section>
         <section>
             <h2>Grupos de Slave</h2>
@@ -430,10 +444,9 @@ administrar servidores DNS autoritativos para <b>muitas zonas</b></li>
         <section>
             <h2>Protocolo de comunicação do cliente</h2>
 <br/>
-TCP + TLS
+TCP + TLS &nbsp;&nbsp;/&nbsp;&nbsp; Biblioteca em python
 
-<pre><code contenteditable>
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<pre style="font-size: 24px"><code contenteditable>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;dnsshim version="1.0"&gt;
     &lt;request&gt;
         &lt;addRr&gt;
@@ -452,7 +465,6 @@ TCP + TLS
 </code></pre>
 
 <!-- Possibilidade de integração com outros sistemas -->
-Disponibilização de biblioteca em python
         </section>
         <section>
             <h2>Provisionamento Automático de Zonas</h2>
